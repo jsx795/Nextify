@@ -26,6 +26,11 @@ export default function Product({ item }: any) {
       router.push("/Login");
       return;
     }
+    const user = localStorage.getItem("user");
+    if(!user){
+      router.push("/Login");
+      return;
+    }
     
 
     addToCart(item, quantity);
