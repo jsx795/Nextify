@@ -9,6 +9,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 export default  function Navbar(){
+  const { cart, clearCart } = useCart();
+
     const { data:session, status } = useSession();
     const [user, setUser] = useState<string | null>(null);
 
@@ -22,6 +24,7 @@ export default  function Navbar(){
 
   localStorage.removeItem("user");
   localStorage.clear();
+  clearCart();
   
   if (session?.user) {
     await signOut({ callbackUrl: "/Login" });
@@ -32,7 +35,6 @@ export default  function Navbar(){
 
 
    
-      const { cart } = useCart();
       const totalQuantity = cart.reduce((total, item) => total + item.quantity,0);
 
     
