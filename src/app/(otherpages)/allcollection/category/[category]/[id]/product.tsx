@@ -3,35 +3,39 @@
 import Navbar from "@/app/_components/Navbar";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useCart } from "@/app/(otherpages)/context/CartContext";
 import Footer from "@/app/_components/footer";
 import { useRouter } from "next/navigation";
-import { signIn, useSession,signOut } from "next-auth/react";
+import {  useSession} from "next-auth/react";
 
 
 export default function Product({ item }: any) {
-  const { data:session} = useSession();
+ const { data:session,status} = useSession();
 
   const router = useRouter();
 
   const [quantity, setquantity] = useState(1);
 
   const { addToCart } = useCart();
+const handleAddToCart = () => {
+  if (status === "loading") return;
 
-  const handleAddToCart = () => {
-    
-    const user = localStorage.getItem("user");
-    
+  const localUser = localStorage.getItem("user");
+  const googleUser = session?.user;
 
-    if(!user || !session?.user){
-      router.push("/Login");
-      return;
-    }
-   
+  // Allow either manual login or Google login
+  if (!localUser && !googleUser) {
+    router.push("/Login");
+    return;
+  }
 
-    addToCart(item, quantity);
-  };
+  addToCart(item, quantity);
+};
+//  useEffect(() => {
+//   console.log("NextAuth status:", status);
+//   console.log("NextAuth session:", session);
+// }, [status, session]);
 
   return (
     <div>
@@ -41,7 +45,6 @@ export default function Product({ item }: any) {
       <div className="flex p-2 ">
        
 
-        {/* Image */}
         <div className="relative h-[35vh] w-[65vw] sm:h-[60vh] sm:w-[37vw] rounded-2xl  mr-6">
 
           <Image
@@ -75,7 +78,7 @@ export default function Product({ item }: any) {
           <div className="flex gap-2 items-center font-bold  text-2xl sm:text-3xl lg:text-4xl sm:gap-7 ">
 
             <button
-              className="w-10 sm:w-20   bg-gray-400   rounded-2xl "
+              className="w-20 sm:w-30   bg-gray-400   rounded-2xl "
               onClick={() =>
                 setquantity(quantity > 1 ? quantity - 1 : 1)
               }
@@ -86,7 +89,7 @@ export default function Product({ item }: any) {
             <h1>{quantity}</h1>
 
             <button
-              className="w-10 sm:w-20   bg-gray-400  rounded-2xl "
+              className="w-20 sm:w-30   bg-gray-400  rounded-2xl "
               onClick={() => setquantity(quantity + 1)}
             >
               +
@@ -98,25 +101,25 @@ export default function Product({ item }: any) {
 
 
           {/* Buttons */}
-          <div className="flex mt-5 gap-2 ">
+          <div className="flex  mt-5 sm:mt-8 gap-2 sm:text-2xl text-xl ">
 
             <Link
-              className="  bg-gray-300 rounded-2xl  w-10 sm:w-20 sm:p-2 text-center"
+              className="  bg-gray-300 rounded-2xl  w-20 sm:w-40 sm:p-2 text-center"
               href="/allcollection"
             >
               Back
             </Link>
 
             <Link
-              className="  bg-gray-300 rounded-2xl w-19 sm:w-20  text-center "
-              href="/Login"
+              className="  bg-gray-300 rounded-2xl w-20 sm:w-40 sm:p-2 text-center "
+              href="/cart"
             >
               Buy Now
             </Link>
 
             <button
-              className=" bg-gray-300 rounded-2xl w-24 sm:w-20  text-center  "
-              onClick={handleAddToCart}
+              className=" bg-gray-300 rounded-2xl w-20 sm:w-40 sm:p-2 text-center  "
+              onClick={() => handleAddToCart()}
             >
               Add To Cart
             </button>
@@ -130,5 +133,5 @@ export default function Product({ item }: any) {
       <Footer />
 
     </div>
-  );
+  )
 }

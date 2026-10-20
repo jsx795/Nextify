@@ -11,10 +11,14 @@ import { useEffect } from "react";
 export default  function Navbar(){
     const { data:session, status } = useSession();
     const [user, setUser] = useState<string | null>(null);
+
     useEffect(() => {
   setUser(localStorage.getItem("user"));
 }, []);
-    async function handleLogout() {
+
+
+  async function handleLogout() {
+    
   localStorage.removeItem("user");
 
   if (session?.user) {

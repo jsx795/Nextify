@@ -40,6 +40,8 @@ export default function registerpage(){
 
     const data = await response.json();
     if(response.ok){
+        localStorage.setItem("user", JSON.stringify(data));
+        router.push("/");
     }
 
     setname("");
@@ -47,7 +49,7 @@ export default function registerpage(){
     setpassword('');
     setconfirmpassword('');
     
-    router.push("/Login")
+    // router.push("/Login")
 
 
     

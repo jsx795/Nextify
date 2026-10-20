@@ -15,13 +15,14 @@ export default function CartPage() {
         <Navbar />
         <div className="">
       <div className="">
-        <h1 className=" sm: sm:text-2xl lg:3xl text-xl lg:3xl text-xl font-bold p-6 ">My Cart</h1>
-        <div className="grid grid-cols-3 sm:grid-cols-2 gap-2  ">
+        <h1 className=" sm: sm:text-2xl text-xl lg:text-3xl font-bold p-2 sm:p-6  ">My Cart</h1>
+        <div className="grid grid-cols-2 sm:grid-cols-2 gap-2  ">
            {cart.map((item:any) => (
          <div key={item.id}>
         <div className="flex justify-between relative  gap-2  items-center rounded-2xl   bg-gradient-to-l from-[#a4a1a5] to-[#8f8a79] p-7 ">
-          <div className="flex justify-center font-bold p-4 "> 
-            <div className="h-[30vh] w-[15vw] relative" >
+          <div className="flex justify-center font-bold p-1 sm:p-4  w-full h-full  "> 
+
+            <div className="w-[25vw] h:[20vh] sm:w-[22vw] sm:h-[32vh] relative" >
                <Image 
                 className="rounded-md "
                 src={item.imge}
@@ -30,13 +31,14 @@ export default function CartPage() {
                 sizes="15vh"
                 />
               </div>
-          <div className="p-4 ">
+
+          <div className="p-2 sm:p-4 sm:text-2xl text-sm ">
             <h1>{item.collename}</h1>
             <h2>{item.price}</h2>
             <h2>quantity: {item.quantity}</h2>
           </div>
           <div>
-            <button className="right-5 top-3  absolute  sm:text-3xl lg:4xl text-2xl  font-bold bg-gradient-to-l from-[#a4a1a5] to-[#8f8a79] px-4   py-2 rounded-full " onClick={()=>removeFromCart(item.id)}>X</button>
+            <button className="right-2 top-1 sm:top-3 sm:right-5 absolute  sm:text-2xl lg:text-4xl text-sm  font-bold bg-gradient-to-l from-[#a4a1a5] to-[#8f8a79] px-4   py-2 rounded-full " onClick={()=>removeFromCart(item.id)}>X</button>
           </div>
           </div>
         </div> 
@@ -49,9 +51,9 @@ export default function CartPage() {
       </div>        
  </div>
  <div className="flex items-center ">
-   <h2 className=" sm:text-3xl lg:4xl text-2xl  font-bold p-9">Total Price: {totalPrice}</h2>
+   <h2 className=" sm:text-3xl lg:text-4xl text-2xl  font-bold p-9">Total Price: {totalPrice}</h2>
              <div className="p-5 ">
-                           <Link className="bg-gradient-to-r from-[#a4a1a5] to-[#8f8a79]    sm:text-3xl lg:4xl text-2xl  px-6 py-2 rounded-2xl " href={"/cart/checkout"}>Checkout</Link>
+                           <Link className="bg-gradient-to-r from-[#a4a1a5] to-[#8f8a79]    sm:text-2xl lg:4xl text-xl  px-6 py-2 rounded-2xl " href={"/cart/checkout"}>Checkout</Link>
              </div>
  </div>   
      <Footer />

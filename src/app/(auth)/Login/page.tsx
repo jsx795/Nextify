@@ -36,6 +36,7 @@ export default function Login(){
     }else{
         alert(data.message || "Invalid email or password");
     }
+
     setname("");
     setpassword('');
 }    
@@ -58,8 +59,11 @@ export default function Login(){
                                   <h1 className="font-semibold    text-xl">Password</h1>
                                   <input onChange={(e)=>setpassword(e.target.value)} value={password} minLength={8} maxLength={12} required className="outline-none px-4 w-[45vw] sm:w-[40vw]      text-lg bg-gradient-to-l from-[#a4a1a5] to-[#8f8a79] py-2 rounded-2xl  mb-3" type="password" placeholder="Enter Password" />
                                   <button className="   text-lg font-bold bg-gradient-to-l from-[#a4a1a5] to-[#8f8a79] rounded-2xl w-[45vw] sm:w-[40vw]  py-2 hover:bg-gradient-to-r from-[#a4a1a5] to-[#8f8a79]">Log In</button>
-                              </form>
-                                 <h1 className="flex p-4   w-[75vw]  text-lg font-semibold">New Here? <Link className="text-gray-700  hover:text-white" href={"/register"}>Create Account</Link></h1>
+
+                               <h1 className="flex p-4 justify-center text-xl font-semibold">New Here? <Link className="text-gray-700  hover:text-white" href={"/register"}>Create Account</Link></h1>
+
+                              </form>                                
+
 
                           </div> 
 

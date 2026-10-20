@@ -31,12 +31,13 @@ export default function checkout(){
     return(
         <div className="w-screen h-screen">
             <Navbar />    
-            <div className="flex h-screen bg-gradient-to-l from-[#a4a1a5] to-[#8f8a79] "> 
-                <div className="w-[60vw]">
+            <div className="grid grid-cols-1  sm:grid-cols-2  justify-center items-center gap-5  bg-gradient-to-l from-[#a4a1a5] to-[#8f8a79]"> 
+                <div className=" sm:w-[60vw] ">
+
                 <h1 className="p-8  sm:text-3xl lg:4xl text-2xl  font-bold">Shipping Address</h1>
 
                 <div className="flex justify-center items-center ">
-                 <form className="flex flex-col p-6  gap-2  font-semibold  sm: sm:text-2xl lg:3xl text-xl lg:3xl text-xl " onSubmit={(e)=>{
+                 <form className="flex flex-col p-6  gap-2  font-semibold  sm: sm:text-2xl lg:text-3xl text-xl lg:3xl  " onSubmit={(e)=>{
                     formhandler(e);
                  }} method="POST" >
                    
@@ -57,13 +58,13 @@ export default function checkout(){
             </div>
 
 
-             <div className="p-10 flex flex-col w-[40vw] ">
-                    <h1 className=" sm:text-4xl lg:5xl text-3xl font-bold">Summary </h1>
-
-                    <div className="grid grid-cols-3 gap-2 ">
+             <div className="p-3 flex flex-col sm:p-10 sm:w-[40vw] justify-center items-center  ">
+                    <h1 className=" sm:text-4xl lg:text-5xl text-3xl font-bold">Summary </h1>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 mt-5  gap-2 h-full ">
                       {cart.map((itema:any)=>(
                       <div key={itema.id} className="">
-                         <div className="h-[20vh] w-[8vw] relative" >
+
+                         <div className="h-[30vh] w-[15vw] sm:h-[20vh] sm:w-[8vw] relative " >
                           <Image 
                           alt={itema.collename}
                           src={itema.imge}
@@ -73,13 +74,11 @@ export default function checkout(){
                           />
              
                         </div>
-                        <h1 className=" sm: sm:text-2xl lg:3xl text-xl lg:3xl text-xl font-semibold ">{itema.collename}</h1>
+                        <h1 className="  sm:text-2xl lg:3xl text-xl lg:text-3xl  font-semibold ">{itema.collename}</h1>
                           
                    
                       </div>
-                     ))} 
-                     
-                    
+                     ))}
                     </div>
                     <div className="flex flex-col p-10">
                         <div className="flex justify-between font-semibold    text-lg "><h1>Subtotal</h1> <h1>${totalPrice}</h1></div>
@@ -95,13 +94,9 @@ export default function checkout(){
                      
                      
                        
-                       
-                     
-                   
-            
-                   
-               <div className="bg-gradient-to-r from-[#a4a1a5] to-[#8f8a79] h-6 w-full"></div>
-                  
+            <div>
+                </div>  
+
             <Footer />
            
         </div>

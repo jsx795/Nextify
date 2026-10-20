@@ -27,29 +27,18 @@
 //   children: React.ReactNode;
 // }) {
 //   const [cart, setcart] = useState<CartItem[]>([]);
-//   const [loaded, setloaded] = useState(false)
 
 //   useEffect(() => {
-//     try{
-//       const savedCart = localStorage.getItem("cart");
+//     const savedCart = localStorage.getItem("cart");
 
 //     if (savedCart) {
 //       setcart(JSON.parse(savedCart));
 //     }
-//     }catch(error){
-//       console.error("error loading ", error)
-//     }finally{
-//       setloaded(true);
-//     }
-    
-    
 //   }, []);
 
 //   useEffect(() => {
-//     if(!loaded) return;
-
 //     localStorage.setItem("cart", JSON.stringify(cart));
-//   }, [cart,loaded]);
+//   }, [cart]);
 
 //   const addToCart = (item: any, quantity: number) => {
 //     setcart((currentCart) => {
@@ -116,7 +105,8 @@
 //         removeFromCart,
 //         increasequantity,
 //         decreasequantity,
-//       }}>
+//       }}
+//     >
 //       {children}
 //     </CartContext.Provider>
 //   );
@@ -128,17 +118,6 @@
 
 //   return context;
 // }
-
-
-
-
-
-
-
-
-
-
-
 
 "use client";
 

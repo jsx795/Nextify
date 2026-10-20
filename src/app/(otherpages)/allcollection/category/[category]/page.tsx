@@ -27,7 +27,7 @@ export default async function Page({
         
          <div className="bg-gradient-to-r from-[#a4a1a5] to-[#8f8a79]  relative ">
                <h1 className=" sm:text-4xl lg:5xl text-3xl font-bold p-6 ">{category}</h1>
-               <div className="grid grid-cols-3 lg:grid-cols-4 gap-5  pb-20 ">
+               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5  pb-20 ">
                  {
                    products.map((links)=>{
                        return(
@@ -35,7 +35,7 @@ export default async function Page({
                             
                                <Link href={`/allcollection/category/${links.category}/${links.id}`}> 
                                <div className="flex flex-col items-center">
-                                 <div className="relative w-[20vw] h-[50vh] rounded" key={links.id}>
+                                 <div className="relative w-[40vw] sm:w-[20vw] sm:h-[50vh] h-[50vh] rounded" key={links.id}>
                                    <Image 
                                src={links.imge}
                                fill
