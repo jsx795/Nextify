@@ -15,12 +15,14 @@ export default  function Navbar(){
     useEffect(() => {
   setUser(localStorage.getItem("user"));
 }, []);
+   
 
 
   async function handleLogout() {
-    
-  localStorage.removeItem("user");
 
+  localStorage.removeItem("user");
+  localStorage.clear();
+  
   if (session?.user) {
     await signOut({ callbackUrl: "/Login" });
   } else {
