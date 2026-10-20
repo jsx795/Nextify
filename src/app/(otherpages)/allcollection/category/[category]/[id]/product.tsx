@@ -21,17 +21,14 @@ export default function Product({ item }: any) {
 
   const handleAddToCart = () => {
     
-    // const user = localStorage.getItem("user");
-    if(!session?.user){
-      router.push("/Login");
-      return;
-    }
     const user = localStorage.getItem("user");
-    if(!user){
+    
+
+    if(!user || !session?.user){
       router.push("/Login");
       return;
     }
-    
+   
 
     addToCart(item, quantity);
   };
