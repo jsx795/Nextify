@@ -1,0 +1,13 @@
+const collection = [
+        {collename:"SHIRTS",category:"shirts", imge:"/images/shirt1.jpg", id:1,href:"/",price:1200,description:"The type of fabric used, such as pure cotton, linen, or polyester blends. The cut of the garment, such as slim fit, regular fit, or contemporary fit."},
+        {collename:"SHIRTS",category:"shirts", imge:"/images/shirt2.jpg", id:2,href:"/",price:1200,description:"The type of fabric used, such as pure cotton, linen, or polyester blends. The cut of the garment, such as slim fit, regular fit, or contemporary fit."},
+        {collename:"SHIRTS",category:"shirts", imge:"/images/shirt3.jpg", id:3,href:"/",price:1200,description:"The type of fabric used, such as pure cotton, linen, or polyester blends. The cut of the garment, such as slim fit, regular fit, or contemporary fit."},
+        {collename:"SHIRTS",category:"shirts", imge:"/images/shirt4.jpg", id:7,href:"/",price:1200,description:"The type of fabric used, such as pure cotton, linen, or polyester blends. The cut of the garment, such as slim fit, regular fit, or contemporary fit."},
+        {collename:"PANTS",category:"pants", imge:"/images/pant.jpg", id:4,href:"/",price:1200,description:"The type of fabric used, such as pure cotton, linen, or polyester blends. The cut of the garment, such as slim fit, regular fit, or contemporary fit."},
+        {collename:"OUTWEAR",category:"outwear", imge:"/images/outwear.jpg", id:5,href:"/",price:1200,description:"The type of fabric used, such as pure cotton, linen, or polyester blends. The cut of the garment, such as slim fit, regular fit, or contemporary fit."},
+        {collename:"T-SHIRTS",category:"tshirts", imge:"/images/tshirt1.jpg", id:6,href:"/",price:1200,description:"The type of fabric used, such as pure cotton, linen, or polyester blends. The cut of the garment, such as slim fit, regular fit, or contemporary fit."},
+        {collename:"T-SHIRTS",category:"tshirts", imge:"/images/tshirt2.jpg", id:8,href:"/",price:1200,description:"The type of fabric used, such as pure cotton, linen, or polyester blends. The cut of the garment, such as slim fit, regular fit, or contemporary fit."},
+        {collename:"T-SHIRTS",category:"tshirts", imge:"/images/tshirt3.jpg", id:9,href:"/",price:1200,description:"The type of fabric used, such as pure cotton, linen, or polyester blends. The cut of the garment, such as slim fit, regular fit, or contemporary fit."},
+        {collename:"T-SHIRTS",category:"tshirts", imge:"/images/tshirt4.jpg", id:10,href:"/",price:1200,description:"The type of fabric used, such as pure cotton, linen, or polyester blends. The cut of the garment, such as slim fit, regular fit, or contemporary fit."},
+    ]
+    export default collection;
